@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gui.NotificationsController"
+      spacing="10" alignment="TOP_CENTER" prefWidth="450" prefHeight="550">
+
+    <Label text="Centrul de Notificări" textFill="#2a5058">
+        <font>
+            <Font name="System Bold" size="20.0"/>
+        </font>
+        <VBox.margin>
+            <Insets top="15" bottom="5"/>
+        </VBox.margin>
+    </Label>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <Tab text="Cereri Prietenie">
+            <VBox spacing="10">
+                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                <Label text="Invitatii în așteptare:" style="-fx-font-weight: bold;"/>
+
+                <ListView fx:id="listViewRequests" VBox.vgrow="ALWAYS"/>
+
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="✅ Acceptă" onAction="#handleAccept"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="120"/>
+
+                    <Button text="❌ Refuză" onAction="#handleReject"
+                            style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="120"/>
+                </HBox>
+                <Label text="* Selectează o cerere pentru a răspunde" style="-fx-text-fill: gray; -fx-font-size: 10px;"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="Alerte Sistem">
+            <VBox spacing="10">
+                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                <Label text="Istoric evenimente și curse:" style="-fx-font-weight: bold;"/>
+
+                <ListView fx:id="listViewSystem" VBox.vgrow="ALWAYS"/>
+
+                <Button text="Reîmprospătează" onAction="#handleRefreshSystem" maxWidth="Infinity"/>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

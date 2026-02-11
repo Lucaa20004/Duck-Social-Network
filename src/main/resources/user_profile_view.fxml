@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gui.UserProfileController"
+      spacing="15" alignment="TOP_CENTER" prefWidth="600" prefHeight="500">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #f4f4f4; -fx-padding: 15; -fx-background-radius: 10;">
+        <VBox alignment="CENTER" style="-fx-background-color: #2a5058; -fx-pref-width: 80; -fx-pref-height: 80; -fx-background-radius: 10;">
+            <Label text="USER" textFill="white" style="-fx-font-weight: bold;"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label fx:id="lblUsername" text="Username" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+            <Label fx:id="lblEmail" text="email@example.com" textFill="gray"/>
+            <Label fx:id="lblStats" text="Statistici: Încărcare..." style="-fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+        </VBox>
+    </HBox>
+
+    <Separator />
+
+    <HBox spacing="15" VBox.vgrow="ALWAYS">
+
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="👥 Prietenii Mei" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <ListView fx:id="listFriends" VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="📢 Activitate Recentă (Curse &amp; Sistem)" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <ListView fx:id="listActivity" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </HBox>
+</VBox>

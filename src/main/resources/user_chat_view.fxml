@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gui.ChatController" spacing="10" alignment="CENTER" prefWidth="500" prefHeight="400">
+
+    <Label fx:id="lblLoggedUser" text="Logat ca: ..." style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+
+    <SplitPane dividerPositions="0.3" VBox.vgrow="ALWAYS">
+        <ListView fx:id="listFriends" />
+
+        <VBox spacing="5">
+
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" VBox.vgrow="ALWAYS" hbarPolicy="NEVER">
+                <content>
+                    <VBox fx:id="chatBox" spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <Label fx:id="lblReply" text="Răspunzi la..." visible="false" managed="false"
+                   style="-fx-text-fill: gray; -fx-font-style: italic; -fx-background-color: #f0f0f0; -fx-padding: 5; -fx-background-radius: 5; -fx-border-color: #ccc; -fx-border-radius: 5;">
+                <VBox.margin>
+                    <Insets left="10" right="10"/>
+                </VBox.margin>
+            </Label>
+
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                <TextField fx:id="txtMessage" HBox.hgrow="ALWAYS" promptText="Scrie un mesaj..."/>
+                <Button text="Trimite" onAction="#handleSendMessage"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #e0e0e0;">
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <TextField fx:id="txtFriendEmail" promptText="ID utilizator (ex: 5)" prefWidth="120"/>
+                <Button text="Trimite Cerere" onAction="#handleSendRequest" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+
+                <Button text="🔔 Notificări"  onAction="#handleOpenNotifications" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #e0e0e0;">
+                <TextField fx:id="txtEventId" promptText="ID Cursă" prefWidth="60"/>
+                <Button text="Subscribe" onAction="#handleSubscribe" style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+                <Button text="Profile" onAction="#handleOpenProfile" style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+
+            </HBox>
+
+        </VBox>
+    </SplitPane>
+</VBox>
